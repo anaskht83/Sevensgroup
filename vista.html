@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultra Vista — ألترا فيستا | سيفنز غروب</title>
+<meta name="description" content="ألترا فيستا: مفهوم ساندويش سريع ومرن تحت مظلة سيفنز غروب — مواد حقيقية، تحضير يومي طازج، ونكهات جريئة.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="Ultra Vista — ألترا فيستا">
+<meta property="og:description" content="Real ingredients · Fresh made daily · Bold flavor">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --vs:#F49026;
+  --vs-deep:#ED572F;
+  --vs-ink:#231F20;
+  --navy-900:#080E28;
+  --navy:#213268;
+  --paper:#FFFDFA;
+  --paper-2:#F7F1E9;
+  --ink:#1C1917;
+  --ink-70:rgba(28,25,23,.70);
+  --ink-45:rgba(28,25,23,.45);
+  --hair:rgba(28,25,23,.12);
+  --hair-l:rgba(255,255,255,.15);
+  --sans:"Almarai",system-ui,sans-serif;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --pad:clamp(20px,5vw,80px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:1.95;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.28;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:var(--pad)}
+.sec{padding-block:clamp(62px,8.5vw,120px)}
+h2{font-size:clamp(1.55rem,3.4vw,2.5rem)}
+.lead{font-size:clamp(.98rem,1.4vw,1.1rem);color:var(--ink-70);max-width:62ch}
+
+.head{display:grid;gap:18px;margin-bottom:clamp(34px,4.5vw,58px)}
+@media(min-width:900px){.head{grid-template-columns:auto 1fr;gap:52px;align-items:start}}
+.no{font-family:var(--serif);font-weight:600;font-size:1.45rem;color:var(--vs-deep);padding-top:6px}
+.head-t .lead{margin-top:18px}
+
+/* ── الشريط العلوي ── */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,253,250,.92);
+  backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--hair)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px}
+.back{display:flex;align-items:center;gap:11px;text-decoration:none}
+.back img{height:32px;width:auto}
+.back span{font-family:var(--serif);font-size:.98rem;letter-spacing:.13em;color:var(--navy);font-weight:600}
+.menu{display:none;gap:28px;font-size:.88rem;font-weight:400}
+.menu a{text-decoration:none;color:var(--ink-70)}
+.menu a:hover{color:var(--vs-deep)}
+@media(min-width:980px){.menu{display:flex}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;
+  font-size:.9rem;font-weight:700;text-decoration:none;border:1px solid transparent;border-radius:2px;
+  transition:background .2s,color .2s,border-color .2s}
+.btn-o{background:var(--vs);color:#fff}
+.btn-o:hover{background:var(--vs-deep)}
+.btn-l{border-color:var(--hair);color:var(--ink)}
+.btn-l:hover{background:var(--paper-2)}
+.btn-sm{padding:9px 20px;font-size:.83rem}
+:focus-visible{outline:2px solid var(--vs-deep);outline-offset:3px}
+
+/* ── الواجهة ── */
+.hero{background:var(--paper-2);position:relative;overflow:hidden}
+.ghostv{position:absolute;inset-block-start:-16%;inset-inline-start:-3%;
+  font-family:var(--serif);font-weight:600;font-size:min(46vw,540px);line-height:.8;
+  color:rgba(244,144,38,.10);pointer-events:none;user-select:none}
+.hero-g{position:relative;z-index:2;display:grid;gap:clamp(28px,4vw,58px);align-items:center;
+  padding-block:clamp(46px,6vw,84px)}
+@media(min-width:940px){.hero-g{grid-template-columns:1.02fr .98fr}}
+.hero-logo{height:88px;width:auto;margin-bottom:22px}
+.hero h1{font-size:clamp(1.85rem,4.4vw,3.3rem);max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--vs-deep)}
+.hero p{margin-top:22px;color:var(--ink-70);font-size:clamp(1rem,1.4vw,1.12rem);max-width:48ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-pair figure{margin:0;border-radius:8px;overflow:hidden;background:#000}
+.hero-pair img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.hero-pair figure:first-child{transform:translateY(-14px)}
+.hero-pair figure:last-child{transform:translateY(14px)}
+@media(max-width:520px){.hero-pair figure{transform:none!important}}
+
+/* ── الوعود الثلاثة ── */
+.promise{background:var(--vs);color:#fff}
+.pr3{display:grid;gap:1px;background:rgba(255,255,255,.26)}
+@media(min-width:780px){.pr3{grid-template-columns:repeat(3,1fr)}}
+.pr{background:var(--vs);padding:clamp(24px,2.8vw,38px);display:flex;flex-direction:column;gap:9px}
+.pr .en{font-family:var(--serif);font-size:.8rem;letter-spacing:.2em;color:rgba(255,255,255,.72);text-transform:uppercase}
+.pr h3{font-size:1.22rem;color:#fff}
+.pr p{font-size:.93rem;color:rgba(255,255,255,.88)}
+
+/* ── عن العلامة ── */
+.about-g{display:grid;gap:clamp(26px,3.4vw,58px)}
+@media(min-width:920px){.about-g{grid-template-columns:1fr 1fr}}
+.pull{border-inline-start:3px solid var(--vs);padding-inline-start:22px;
+  font-size:clamp(1.02rem,1.8vw,1.28rem);font-weight:700;line-height:1.7;color:var(--vs-deep)}
+
+/* ── شبكة الأصناف ── */
+.grid{display:grid;gap:clamp(12px,1.6vw,18px)}
+@media(min-width:820px){
+  .grid{grid-template-columns:repeat(6,1fr)}
+  .g2{grid-column:span 2}
+  .g3{grid-column:span 3}
+}
+.tile{position:relative;overflow:hidden;border-radius:6px;background:var(--paper-2);margin:0}
+.tile img{width:100%;height:100%;object-fit:cover;min-height:210px;transition:transform .7s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile figcaption{position:absolute;inset-inline:0;bottom:0;padding:16px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.66));color:#fff;font-size:.94rem;font-weight:700}
+
+/* ── شريط الأجواء ── */
+.mood{background:var(--vs-ink);color:#fff}
+.mood h2{color:#fff}
+.mood .no{color:var(--vs)}
+.mood .lead{color:rgba(255,255,255,.66)}
+.mood-g{display:grid;gap:clamp(20px,3vw,44px);align-items:center}
+@media(min-width:900px){.mood-g{grid-template-columns:1fr 1fr}}
+.mood-g figure{margin:0;border-radius:8px;overflow:hidden}
+.mood-g img{width:100%;height:auto}
+
+/* ── تذييل ── */
+.back-strip{background:var(--paper-2)}
+.bs{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+  padding-block:clamp(40px,5vw,64px)}
+.bs h3{font-size:clamp(1.15rem,2.2vw,1.6rem);max-width:24ch}
+footer{background:var(--navy-900);color:rgba(255,255,255,.42);padding-block:26px;font-size:.82rem}
+.foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.foot img{height:24px;opacity:.6}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="back" href="index.html">
+      <img src="images/mark-navy.png" alt="Sevens Group">
+      <span>SEVENS GROUP</span>
+    </a>
+    <div class="menu">
+      <a href="#promise">وعدنا</a>
+      <a href="#about">عن العلامة</a>
+      <a href="#menu">من القائمة</a>
+    </div>
+    <a class="btn btn-l btn-sm" href="index.html#brands">كل العلامات</a>
+  </div>
+</nav>
+
+<!-- ═══ الواجهة ═══ -->
+<header class="hero" id="top">
+  <span class="ghostv" aria-hidden="true">V</span>
+  <div class="wrap hero-g">
+    <div>
+      <img class="hero-logo" src="images/brands/vista-logo.png" alt="Ultra Vista">
+      <h1>ساندويش <em>يُحضَّر أمامك</em>، بمكوّنات حقيقية.</h1>
+      <p>
+        مفهوم ساندويش سريع ومرن تحت مظلة سيفنز غروب، مصمَّم للمساحات الصغيرة
+        ومعدلات الدوران العالية — بخبز يُخبز يومياً وتشكيلة نكهات تجمع مطابخ العالم.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-o" href="#menu">شوف من القائمة</a>
+        <a class="btn btn-l" href="#about">عن العلامة</a>
+      </div>
+    </div>
+    <div class="hero-pair">
+      <figure><img src="images/vs/tikka.jpg" alt="ساندويش تشيكن تكا"></figure>
+      <figure><img src="images/vs/tokyo.jpg" alt="ساندويش طوكيو تشيكن"></figure>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ الوعود الثلاثة ═══ -->
+<section class="promise">
+  <div class="wrap pr3" style="padding:0">
+    <article class="pr">
+      <span class="en">Real Ingredients</span>
+      <h3>مكوّنات حقيقية</h3>
+      <p>لحم ودجاج وخضار طازجة بمواصفة استلام محدّدة — بلا بدائل ولا اختصارات.</p>
+    </article>
+    <article class="pr">
+      <span class="en">Fresh Made Daily</span>
+      <h3>تحضير يومي</h3>
+      <p>الخبز والصلصات تُحضَّر كل يوم، والساندويش يُركَّب لحظة الطلب لا قبله.</p>
+    </article>
+    <article class="pr">
+      <span class="en">Bold Flavor</span>
+      <h3>نكهة جريئة</h3>
+      <p>تتبيلات وصلصات مطوَّرة داخلياً تعطي كل صنف شخصيته الخاصة.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ═══ عن العلامة ═══ -->
+<section class="sec" id="about">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">01</div>
+      <div class="head-t"><h2>عن العلامة</h2></div>
+    </div>
+    <div class="about-g">
+      <div>
+        <p class="lead">
+          ألترا فيستا مفهوم Sandwich Maker سريع ومرن، مصمَّم ليعمل ضمن مساحة محدودة
+          بمعدل دوران عالٍ — وهذا ما يجعله من أسهل نماذج المجموعة قابلية للافتتاح في موقع جديد.
+        </p>
+        <p class="lead" style="margin-top:16px">
+          القائمة مبنية على فكرة الرحلة: كل ساندويش يستحضر مطبخاً مختلفاً، من التكا الهندية
+          إلى نكهات الشرق الأقصى، إلى جانب السلطات والوجبات الجانبية ووجبات الأطفال.
+        </p>
+      </div>
+      <div>
+        <div class="pull">مساحة صغيرة، قائمة مركّزة، ودوران عالٍ.</div>
+        <p class="lead" style="margin-top:20px;font-size:.96rem">
+          خلف البساطة الظاهرة منظومة تشغيل كاملة: مواصفة قياسية لكل مادة، وصفة بمقاديرها،
+          ووقت تحضير معياري لكل صنف — وهي نفس المنظومة التي تُنقل إلى أي فرع جديد.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ من القائمة ═══ -->
+<section class="sec" id="menu" style="padding-top:0">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">02</div>
+      <div class="head-t">
+        <h2>من القائمة</h2>
+        <p class="lead">ساندويشات، برغر، سلطات، ووجبات جانبية — تُحضَّر طازجة عند الطلب.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <figure class="tile g2"><img src="images/vs/burger.jpg" alt="برغر ألترا فيستا"><figcaption>البرغر</figcaption></figure>
+      <figure class="tile g2"><img src="images/vs/crispy.jpg" alt="ساندويش الدجاج المقرمش"><figcaption>الدجاج المقرمش</figcaption></figure>
+      <figure class="tile g2"><img src="images/vs/salad.jpg" alt="سلطة سيزر بالدجاج"><figcaption>السلطات</figcaption></figure>
+      <figure class="tile g3"><img src="images/vs/tikka.jpg" alt="ساندويش تشيكن تكا"><figcaption>تشيكن تكا</figcaption></figure>
+      <figure class="tile g3"><img src="images/vs/tokyo.jpg" alt="ساندويش طوكيو تشيكن"><figcaption>طوكيو تشيكن</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ الأجواء ═══ -->
+<section class="sec mood">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">03</div>
+      <div class="head-t">
+        <h2>وجبة تُشارَك</h2>
+        <p class="lead">من وجبة سريعة بين محاضرتين إلى سهرة مباراة مع الأصدقاء.</p>
+      </div>
+    </div>
+    <div class="mood-g">
+      <figure><img src="images/vs/friends.jpg" alt="أصدقاء يتشاركون وجبة"></figure>
+      <figure><img src="images/vs/kitchen.jpg" alt="سلطات ألترا فيستا"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="back-strip">
+  <div class="wrap bs">
+    <h3>ألترا فيستا واحدة من علامات سيفنز غروب.</h3>
+    <a class="btn btn-l" href="index.html#brands">تصفّح باقي العلامات</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <img src="images/mark-white.png" alt="Sevens Group">
+    <span>© <span id="yr">2026</span> Sevens Group</span>
+    <span>Ultra Vista · Sandwich Maker</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var items = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  items.forEach(function(x){ io.observe(x); });
+} else { items.forEach(function(x){ x.classList.add('in'); }); }
+</script>
+</body>
+</html>

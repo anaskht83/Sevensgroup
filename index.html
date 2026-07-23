@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سيفنز غروب | Sevens Group — صناعة الأغذية والمشروبات والامتياز التجاري</title>
+<meta name="description" content="سيفنز غروب: مجموعة متخصصة في صناعة الأغذية والمشروبات، تأسست عام 2000 في دمشق. أكثر من 25 عاماً في بناء العلامات وتشغيلها ومنح الامتياز التجاري.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:site_name" content="Sevens Group">
+<meta property="og:title" content="سيفنز غروب — نحن لا نمنح شعاراً، نمنح منظومة">
+<meta property="og:description" content="أكثر من 25 عاماً في صناعة الأغذية والمشروبات: مخابز، مطاعم، وجبات سريعة، وامتياز تجاري.">
+<meta property="og:image" content="images/og.jpg">
+<link rel="icon" href="images/mark-navy.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy-900:#080E28;
+  --navy-800:#0E1739;
+  --navy:#213268;
+  --navy-soft:#2C3F7C;
+  --teal:#0FA79B;
+  --teal-br:#16C4B4;
+  --gold:#D6A03C;
+  --red:#D9463F;
+  --paper:#FFFFFF;
+  --paper-2:#F2F5FA;
+  --ink:#0B1230;
+  --ink-70:rgba(11,18,48,.70);
+  --ink-45:rgba(11,18,48,.45);
+  --hair:rgba(11,18,48,.11);
+  --hair-l:rgba(255,255,255,.14);
+  --sans:"Almarai",system-ui,sans-serif;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --pad:clamp(20px,5vw,80px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:1.95;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:800;line-height:1.3;letter-spacing:-.01em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+.wrap{max-width:1280px;margin:0 auto;padding-inline:var(--pad)}
+.sec{padding-block:clamp(66px,9vw,132px)}
+h2{font-size:clamp(1.6rem,3.6vw,2.7rem)}
+.lead{font-size:clamp(.98rem,1.4vw,1.1rem);color:var(--ink-70);max-width:64ch}
+.dark .lead{color:rgba(255,255,255,.68)}
+
+/* رقم القسم + العنوان */
+.head{display:grid;gap:20px;align-items:start;margin-bottom:clamp(38px,5vw,66px)}
+@media(min-width:900px){.head{grid-template-columns:auto 1fr;gap:56px}}
+.no{font-family:var(--serif);font-weight:600;font-size:1.5rem;color:var(--teal);
+  letter-spacing:.06em;padding-top:6px;white-space:nowrap}
+.head-t h2{max-width:22ch}
+.head-t .lead{margin-top:20px}
+
+/* ألوان الأقسام الداكنة */
+.dark{background:var(--navy-900);color:#fff}
+.dark h2,.dark h3{color:#fff}
+.tint{background:var(--paper-2)}
+
+/* ── الشريط العلوي ── */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--hair)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:38px;width:auto}
+.brand span{font-family:var(--serif);font-weight:600;font-size:1.12rem;letter-spacing:.14em;color:var(--navy)}
+.menu{display:none;gap:32px;font-size:.9rem;font-weight:400}
+.menu a{text-decoration:none;color:var(--ink-70);transition:color .2s}
+.menu a:hover{color:var(--teal)}
+@media(min-width:1000px){.menu{display:flex}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 30px;
+  font-family:var(--sans);font-size:.9rem;font-weight:700;text-decoration:none;
+  border:1px solid transparent;border-radius:2px;transition:background .2s,color .2s,border-color .2s}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-br)}
+.btn-outline{border-color:var(--hair-l);color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,.09)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-soft)}
+.btn-sm{padding:10px 22px;font-size:.84rem}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+/* ── الواجهة ── */
+.hero{background:var(--navy-900);color:#fff;position:relative;overflow:hidden;
+  padding-block:clamp(70px,11vw,140px)}
+.hero::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:46%;
+  background:linear-gradient(115deg,rgba(15,167,155,.16),transparent 62%);pointer-events:none}
+.hero-mark{position:absolute;inset-block-start:-14%;inset-inline-end:-9%;width:min(58%,620px);
+  opacity:.05;pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:900px}
+.hero-mark-s{height:64px;width:auto;margin-bottom:32px}
+.hero h1{font-size:clamp(1.95rem,5.2vw,3.85rem);font-weight:800;line-height:1.32;max-width:19ch}
+.hero h1 b{color:var(--teal-br);font-weight:800}
+.rule{width:64px;height:3px;background:var(--teal);margin:30px 0}
+.hero p{color:rgba(255,255,255,.7);font-size:clamp(1rem,1.5vw,1.14rem);max-width:56ch;font-weight:300}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.kicker{font-family:var(--serif);font-size:.86rem;letter-spacing:.34em;color:var(--teal-br);
+  margin-bottom:26px;text-transform:uppercase}
+.strip{margin-top:clamp(46px,6vw,72px);padding-top:26px;border-top:1px solid var(--hair-l);
+  font-family:var(--serif);font-size:.9rem;letter-spacing:.28em;color:rgba(255,255,255,.5);
+  text-transform:uppercase}
+
+/* ── الأرقام ── */
+.stats{border-bottom:1px solid var(--hair)}
+.stats-g{display:grid;grid-template-columns:repeat(2,1fr);padding-block:clamp(40px,5vw,60px);gap:36px 0}
+@media(min-width:900px){.stats-g{grid-template-columns:repeat(4,1fr)}}
+.st{padding-inline:clamp(10px,2vw,26px);border-inline-start:1px solid var(--hair)}
+.st:first-child{border:none;padding-inline-start:0}
+@media(max-width:899px){.st:nth-child(odd){border:none;padding-inline-start:0}}
+.st b{display:block;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;color:var(--navy);line-height:1.1}
+.st span{display:block;margin-top:8px;font-size:.86rem;color:var(--ink-45)}
+
+/* ── من نحن ── */
+.about-g{display:grid;gap:clamp(26px,3.4vw,60px)}
+@media(min-width:920px){.about-g{grid-template-columns:1fr 1fr}}
+.about-g p + p{margin-top:18px}
+.quote{border-inline-start:3px solid var(--teal);padding-inline-start:24px;
+  font-size:clamp(1.05rem,1.9vw,1.35rem);font-weight:700;line-height:1.7;color:var(--navy)}
+
+/* ── مجالات التخصص ── */
+.fields{display:grid;gap:1px;background:var(--hair-l)}
+@media(min-width:760px){.fields{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.fields{grid-template-columns:repeat(4,1fr)}}
+.field{background:var(--navy-900);padding:clamp(28px,3vw,42px) clamp(20px,2.4vw,32px);
+  display:flex;flex-direction:column;gap:14px;min-height:230px}
+.field .en{font-family:var(--serif);font-size:.82rem;letter-spacing:.2em;color:var(--teal-br);text-transform:uppercase}
+.field h3{font-size:1.22rem}
+.field p{font-size:.92rem;color:rgba(255,255,255,.6);font-weight:300}
+
+/* ── المعادلة ── */
+.eq{display:grid;gap:18px}
+@media(min-width:760px){.eq{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.eq{grid-template-columns:repeat(4,1fr)}}
+.pil{background:#fff;border:1px solid var(--hair);padding:clamp(24px,2.6vw,34px);position:relative}
+.pil::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;height:3px;background:var(--navy)}
+.pil.c2::before{background:var(--red)}
+.pil.c3::before{background:var(--gold)}
+.pil.c4::before{background:var(--teal)}
+.pil h3{font-size:1.1rem;margin-bottom:12px}
+.pil p{font-size:.9rem;color:var(--ink-70)}
+
+/* ── ما يميزنا ── */
+.edge{display:grid;gap:0;border-top:1px solid var(--hair)}
+.edge li{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;padding:24px 0;
+  border-bottom:1px solid var(--hair);align-items:baseline}
+@media(min-width:880px){.edge li{grid-template-columns:56px minmax(210px,1fr) 2fr;gap:28px}}
+.edge .n{font-family:var(--serif);font-size:1.15rem;color:var(--teal);font-weight:600}
+.edge .t{font-weight:700;font-size:1.04rem;grid-column:2}
+.edge .d{color:var(--ink-45);font-size:.92rem;grid-column:2}
+@media(min-width:880px){.edge .d{grid-column:3}}
+
+/* ── العلامات ── */
+.main-b{display:grid;gap:18px}
+@media(min-width:900px){.main-b{grid-template-columns:repeat(3,1fr)}}
+.bcard{background:rgba(255,255,255,.045);border:1px solid var(--hair-l);
+  padding:clamp(26px,2.8vw,38px);display:flex;flex-direction:column;gap:14px}
+.bcard .plate{background:#fff;border-radius:3px;margin-bottom:10px;overflow:hidden}
+.bcard .plate img{width:100%;height:auto;display:block}
+.bcard h3{font-size:1.35rem}
+.bcard .cat{font-family:var(--serif);font-size:.8rem;letter-spacing:.18em;color:var(--teal-br);text-transform:uppercase}
+.bcard p{font-size:.93rem;color:rgba(255,255,255,.62);font-weight:300}
+.bcard .meta{margin-top:auto;padding-top:18px;border-top:1px solid var(--hair-l);
+  font-size:.82rem;color:rgba(255,255,255,.4)}
+
+.more-b{margin-top:clamp(34px,4vw,56px);padding-top:30px;border-top:1px solid var(--hair-l)}
+.more-b h4{font-size:.8rem;letter-spacing:.2em;color:rgba(255,255,255,.45);font-weight:400;
+  text-transform:uppercase;font-family:var(--serif);margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--hair-l);padding:11px 20px;font-size:.9rem;
+  color:rgba(255,255,255,.75);display:inline-flex;align-items:center;gap:9px}
+.chip i{font-style:normal;font-size:.68rem;letter-spacing:.12em;color:var(--navy-900);
+  background:var(--teal-br);padding:2px 7px;font-weight:700}
+
+/* ── صيغ الامتياز ── */
+.forms{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair)}
+@media(min-width:760px){.forms{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.forms{grid-template-columns:repeat(4,1fr)}}
+.form{background:#fff;padding:clamp(26px,2.8vw,38px);display:flex;flex-direction:column;gap:10px}
+.form .en{font-family:var(--serif);font-size:.78rem;letter-spacing:.2em;color:var(--ink-45);text-transform:uppercase}
+.form h3{font-size:1.14rem}
+.form p{font-size:.9rem;color:var(--ink-70)}
+
+/* ── تواصل ── */
+.contact-g{display:grid;gap:clamp(30px,4vw,64px)}
+@media(min-width:920px){.contact-g{grid-template-columns:1fr 1fr;align-items:end}}
+.cl{border-top:1px solid var(--hair-l)}
+.cl a,.cl div{display:flex;justify-content:space-between;gap:20px;padding:18px 0;
+  border-bottom:1px solid var(--hair-l);text-decoration:none;font-size:.95rem}
+.cl .k{color:rgba(255,255,255,.45);font-size:.86rem}
+.cl .v{font-weight:700;direction:ltr}
+
+footer{background:var(--navy-900);color:rgba(255,255,255,.4);
+  border-top:1px solid var(--hair-l);padding-block:28px;font-size:.82rem}
+.foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.foot img{height:26px;opacity:.6}
+
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <img src="images/mark-navy.png" alt="Sevens Group">
+      <span>SEVENS GROUP</span>
+    </a>
+    <div class="menu">
+      <a href="#about">من نحن</a>
+      <a href="#fields">مجالات التخصص</a>
+      <a href="#equation">معادلتنا</a>
+      <a href="#brands">علاماتنا</a>
+      <a href="#franchise">الامتياز</a>
+      <a href="#contact">تواصل</a>
+    </div>
+    <a class="btn btn-navy btn-sm" href="#contact">تواصل معنا</a>
+  </div>
+</nav>
+
+<!-- ═══════ الواجهة ═══════ -->
+<header class="hero" id="top">
+  <img class="hero-mark" src="images/mark-white.png" alt="" aria-hidden="true">
+  <div class="wrap hero-in">
+    <img class="hero-mark-s" src="images/mark-white.png" alt="Sevens Group">
+    <div class="kicker">Food · Beverage · Bakery · Franchising</div>
+    <h1>خمسة وعشرون عاماً في صناعة الأغذية،<br><b>مختصَرة في منظومة</b> تُسلَّم جاهزة.</h1>
+    <div class="rule"></div>
+    <p>
+      سيفنز غروب مجموعة متخصصة في صناعة الأغذية والمشروبات، تأسست عام 2000 في دمشق.
+      لم نكتفِ بإدارة مشاريع قائمة، بل بنينا علامات تجارية من الفكرة الأولى وحتى التوسّع.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-teal" href="#brands">علاماتنا التجارية</a>
+      <a class="btn btn-outline" href="#about">تعرّف على المجموعة</a>
+    </div>
+    <div class="strip">Damascus, Syria · Est. 2000 · ISO 22000</div>
+  </div>
+</header>
+
+<!-- ═══════ الأرقام ═══════ -->
+<section class="stats">
+  <div class="wrap stats-g">
+    <div class="st"><b>2000</b><span>سنة التأسيس — دمشق</span></div>
+    <div class="st"><b>+25</b><span>عاماً من الخبرة التراكمية</span></div>
+    <div class="st"><b>11</b><span>علامة تجارية تحت المظلة</span></div>
+    <div class="st"><b>ISO 22000</b><span>معايير سلامة الغذاء</span></div>
+  </div>
+</section>
+
+<!-- ═══════ من نحن ═══════ -->
+<section class="sec" id="about">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">01</div>
+      <div class="head-t"><h2>من نحن</h2></div>
+    </div>
+    <div class="about-g">
+      <div>
+        <p class="lead">
+          سيفنز غروب مجموعة متخصصة في صناعة الأغذية والمشروبات، تمتد خبرتها التراكمية إلى أكثر من ٢٥ عاماً في السوق.
+          خلال هذه السنوات لم نكتفِ بإدارة مشاريع قائمة، بل بنينا علامات تجارية من الفكرة الأولى وحتى التوسّع:
+          من تحديد الهوية والمنتج، مروراً بالتصميم والتجهيز والتدريب، وصولاً إلى التشغيل اليومي والتطوير المستمر.
+        </p>
+        <p class="lead" style="margin-top:18px">
+          إلى جانب بناء العلامات وتشغيلها، تعمل المجموعة في خدمات الضيافة الخارجية والمناسبات،
+          والاستثمار في التصنيع الغذائي وتطوير قطاع الأغذية والتغذية.
+        </p>
+      </div>
+      <div>
+        <div class="quote">نحن لا نمنح شعاراً — نمنح منظومة.</div>
+        <p style="margin-top:22px;color:var(--ink-70);font-size:.96rem">
+          الشريك لدينا لا يشتري حق تعليق لافتة، بل يحصل على تراكم سنوات من التجربة والخطأ
+          محوّلاً إلى مخططات وأدلة ومعايير جاهزة للتنفيذ، مع فريق يرافقه حتى تصبح الوحدة قادرة على الوقوف بذاتها.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ مجالات التخصص ═══════ -->
+<section class="sec dark" id="fields">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">02</div>
+      <div class="head-t">
+        <h2>مجالات تخصصنا</h2>
+        <p class="lead">أربعة قطاعات نعمل فيها ميدانياً — لا استشارياً فقط.</p>
+      </div>
+    </div>
+    <div class="fields">
+      <article class="field">
+        <span class="en">Bakery &amp; Pastry</span>
+        <h3>المخابز والحلويات</h3>
+        <p>خطوط إنتاج الخبز والمعجنات والحلويات، ومعايير الجودة والمواصفات القياسية للمواد الأولية.</p>
+      </article>
+      <article class="field">
+        <span class="en">Food &amp; Beverage</span>
+        <h3>المطاعم والضيافة</h3>
+        <p>بناء المطاعم والكافيهات واللاونجات، وتصميم تجربة الضيافة كاملة.</p>
+      </article>
+      <article class="field">
+        <span class="en">Fast Food</span>
+        <h3>الوجبات السريعة</h3>
+        <p>نماذج تشغيل عالية السرعة والدوران، بمعايير ثابتة للجودة والخدمة.</p>
+      </article>
+      <article class="field">
+        <span class="en">Franchising</span>
+        <h3>الامتياز التجاري</h3>
+        <p>تحويل النماذج الناجحة إلى منظومات قابلة للنسخ والتوسّع الجغرافي.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ المعادلة ═══════ -->
+<section class="sec tint" id="equation">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">03</div>
+      <div class="head-t">
+        <h2>المعادلة التي نبني عليها كل علامة</h2>
+        <p class="lead">كل علامة تحت مظلة المجموعة بُنيت وفق المعادلة ذاتها، وهي مرجعنا العملي في كل ما نقدّمه لشركائنا.</p>
+      </div>
+    </div>
+    <div class="eq">
+      <div class="pil">
+        <h3>الهوية البصرية</h3>
+        <p>مفهوم متكامل: الديكور، الألوان، مواد التغليف، والشعارات — بثبات لا يتغيّر من فرع إلى آخر.</p>
+      </div>
+      <div class="pil c2">
+        <h3>الجودة</h3>
+        <p>مواصفات محدّدة لكل مادة تُستخدم، غذائية كانت أو غير غذائية، وبلا استثناءات.</p>
+      </div>
+      <div class="pil c3">
+        <h3>الفن</h3>
+        <p>كل صنف يُقدَّم بأعلى درجات الانسجام والطعم، ليكون قطعة فنية قائمة بذاتها.</p>
+      </div>
+      <div class="pil c4">
+        <h3>دليل التشغيل</h3>
+        <p>النظام العام، التدريب، أسلوب العمل الجماعي، والمهام الوظيفية — كل شيء مكتوب.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ما يميز طريقتنا ═══════ -->
+<section class="sec">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">04</div>
+      <div class="head-t"><h2>ما الذي يميّز طريقتنا</h2></div>
+    </div>
+    <ul class="edge">
+      <li><span class="n">I</span><span class="t">خبرة تشغيلية ميدانية</span><span class="d">لا استشارية فقط — نحن نُشغّل ما نصمّمه.</span></li>
+      <li><span class="n">II</span><span class="t">منظومة موثّقة</span><span class="d">أدلة تشغيل، مواصفات قياسية، وصفات، أوصاف وظيفية، وبرامج تدريب.</span></li>
+      <li><span class="n">III</span><span class="t">شبكة موردين معتمدين</span><span class="d">مبنيّة على سنوات من التجربة والاختبار.</span></li>
+      <li><span class="n">IV</span><span class="t">التزام بسلامة الغذاء</span><span class="d">معايير سلامة الغذاء ونظم الإدارة المعتمدة (ISO 22000).</span></li>
+      <li><span class="n">V</span><span class="t">تحسين مستمر</span><span class="d">كل ملاحظة من السوق تعود إلى المنظومة وتُحدَّث.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════ العلامات ═══════ -->
+<section class="sec dark" id="brands">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">05</div>
+      <div class="head-t">
+        <h2>علاماتنا التجارية</h2>
+        <p class="lead">نُدير ونُطوّر تحت مظلة المجموعة سلسلة من العلامات في قطاعات مختلفة، كل واحدة منها بُنيت وفق المعادلة ذاتها.</p>
+      </div>
+    </div>
+
+    <div class="main-b">
+      <article class="bcard">
+        <div class="plate"><img src="images/brands/grand-bakers.png" alt="Grand Bakers"></div>
+        <span class="cat">Bakery &amp; Pastry</span>
+        <h3><a href="grand-bakers.html" style="text-decoration:none">Grand Bakers</a></h3>
+        <p>سلسلة مخابز ومعجنات تجمع بين الإنتاج اليومي الطازج والمعايير الصناعية الثابتة.</p>
+        <div class="meta"><a href="grand-bakers.html" style="color:var(--teal-br);text-decoration:none;font-weight:700">صفحة العلامة ←</a></div>
+      </article>
+
+      <article class="bcard">
+        <div class="plate"><img src="images/brands/fireman.png" alt="Fireman Burger"></div>
+        <span class="cat">Fast Food</span>
+        <h3><a href="fireman.html" style="text-decoration:none">Fireman Burger</a></h3>
+        <p>علامة وجبات سريعة انطلقت عام 2017 حول فكرة الشواء والنار. تقوم على ثلاثة أعمدة: الطزاجة، والتركيبات، وحرية الاختيار.</p>
+        <div class="meta"><a href="fireman.html" style="color:var(--teal-br);text-decoration:none;font-weight:700">صفحة العلامة ←</a></div>
+      </article>
+
+      <article class="bcard">
+        <div class="plate"><img src="images/brands/vista.png" alt="Ultra Vista"></div>
+        <span class="cat">Sandwich Maker</span>
+        <h3><a href="vista.html" style="text-decoration:none">Ultra Vista</a></h3>
+        <p>مفهوم Sandwich Maker سريع ومرن، مصمَّم للمساحات الصغيرة ومعدلات الدوران العالية.</p>
+        <div class="meta"><a href="vista.html" style="color:var(--teal-br);text-decoration:none;font-weight:700">صفحة العلامة ←</a></div>
+      </article>
+    </div>
+
+    <div class="more-b">
+      <h4>وباقي علامات المجموعة</h4>
+      <div class="chips">
+        <span class="chip">موزاييك — Mozaik</span>
+        <span class="chip">سماش آند كرانشي</span>
+        <span class="chip">تشكن روت</span>
+        <span class="chip">سبورت كافيه</span>
+        <span class="chip">فروت شو — Fruit Show</span>
+        <span class="chip">جوري — Rosa Damascena</span>
+        <span class="chip"><i>جديد</i> كافيه وبيتزا لاروزا</span>
+        <span class="chip"><i>جديد</i> الحريف — بيت الشواء العالمي</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ صيغ الامتياز ═══════ -->
+<section class="sec" id="franchise">
+  <div class="wrap rv">
+    <div class="head">
+      <div class="no">06</div>
+      <div class="head-t">
+        <h2>صيغ الامتياز المتاحة</h2>
+        <p class="lead">نتيح أربع صيغ للشراكة، تُحدَّد الصيغة المناسبة بعد دراسة قدرات الشريك والسوق المستهدف.</p>
+      </div>
+    </div>
+    <div class="forms">
+      <article class="form">
+        <span class="en">One Unit</span>
+        <h3>وحدة واحدة</h3>
+        <p>فرع واحد ضمن نطاق جغرافي محدّد.</p>
+      </article>
+      <article class="form">
+        <span class="en">Multi Unit</span>
+        <h3>وحدات متعدّدة</h3>
+        <p>التزام بعدد من الوحدات وفق جدول زمني متفق عليه.</p>
+      </article>
+      <article class="form">
+        <span class="en">Region</span>
+        <h3>امتياز إقليمي</h3>
+        <p>حقوق تطوير العلامة ضمن إقليم محدّد.</p>
+      </article>
+      <article class="form">
+        <span class="en">Country</span>
+        <h3>امتياز دولة</h3>
+        <p>حقوق حصرية لتطوير العلامة على مستوى دولة كاملة.</p>
+      </article>
+    </div>
+    <p class="lead" style="margin-top:30px;font-size:.92rem">
+      يُحدَّد لكل صيغة نطاقها الجغرافي، ومدّة الحصرية، والالتزام بعدد الوحدات وجدولها الزمني، وشروط التجديد — وتُوثَّق جميعها ضمن عقد الامتياز.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ تواصل ═══════ -->
+<section class="sec dark" id="contact">
+  <div class="wrap rv">
+    <div class="contact-g">
+      <div>
+        <div class="no" style="margin-bottom:18px">07</div>
+        <h2>تواصل معنا</h2>
+        <p class="lead" style="margin-top:20px">
+          لأي استفسار عن المجموعة أو علاماتها أو صيغ الامتياز، فريقنا على تواصل.
+        </p>
+      </div>
+
+      <div class="cl">
+        <a href="https://www.sevensgroups.com"><span class="k">الموقع الإلكتروني</span><span class="v">www.sevensgroups.com</span></a>
+        <a href="mailto:CEO@sevensgroups.com"><span class="k">البريد الإلكتروني</span><span class="v">CEO@sevensgroups.com</span></a>
+        <div><span class="k">المقر</span><span class="v" style="direction:rtl">دمشق، سوريا</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <img src="images/mark-white.png" alt="Sevens Group">
+    <span>© <span id="yr">2026</span> Sevens Group — جميع الحقوق محفوظة</span>
+    <span>Food · Beverage · Bakery · Franchising</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var items = document.querySelectorAll('.rv');
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .12 });
+  items.forEach(function(x){ io.observe(x); });
+} else {
+  items.forEach(function(x){ x.classList.add('in'); });
+}
+</script>
+</body>
+</html>
