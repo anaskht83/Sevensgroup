@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>اطلب بيتزا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   الإعدادات — عدّل هون بس
+   ============================================================ */
+:root{
+  --ember:#FFCA02;
+  --ember-dark:#E0AF00;
+  --coal:#3A3B3D;
+  --coal-2:#4B4C4E;
+  --dough:#FFFFFF;
+  --basil:#9BD17B;
+  --muted:#B9BABC;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--coal);color:var(--dough);font-family:'Tajawal',system-ui,sans-serif}
+body{padding-bottom:190px;overflow-x:hidden}
+
+/* ترويسة */
+header{
+  padding:26px 20px 22px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255,202,2,.20) 0%, rgba(255,202,2,0) 64%),
+    var(--coal);
+  border-bottom:1px solid rgba(255,255,255,.09);
+  text-align:center;
+}
+.brand{
+  font-size:12px;letter-spacing:3px;color:var(--muted);
+  font-weight:700;margin-bottom:10px;
+}
+h1{
+  font-family:'Lalezar',serif;font-weight:400;
+  font-size:clamp(34px,10vw,46px);line-height:1.15;
+  color:var(--dough);
+}
+h1 em{font-style:normal;color:var(--ember)}
+.sub{margin-top:10px;font-size:14.5px;color:var(--muted);line-height:1.7}
+
+/* الأصناف */
+main{padding:20px 16px 8px;max-width:620px;margin:0 auto}
+.sec-label{
+  font-size:12px;letter-spacing:2px;color:var(--muted);font-weight:700;
+  display:flex;align-items:center;gap:10px;margin:6px 4px 14px;
+}
+.sec-label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+
+.item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--coal-2);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:14px;margin-bottom:11px;
+  transition:border-color .2s, background .2s;
+}
+.item.active{border-color:var(--ember);background:#57585A}
+.thumb{
+  width:52px;height:52px;flex:none;border-radius:12px;
+  background:linear-gradient(145deg,var(--ember),var(--ember-dark));
+  display:grid;place-items:center;font-size:26px;
+}
+.info{flex:1;min-width:0}
+.name{font-weight:800;font-size:17px;line-height:1.3}
+.tag{display:inline-block;margin-right:7px;padding:2px 8px;border-radius:20px;background:rgba(155,209,123,.14);border:1px solid rgba(155,209,123,.5);color:var(--basil);font-size:11px;font-weight:700;vertical-align:middle}
+.desc{font-size:12.5px;color:var(--muted);margin-top:3px}
+.price{font-size:13px;color:var(--basil);font-weight:700;margin-top:4px}
+
+.stepper{display:flex;align-items:center;gap:6px;flex:none}
+.stepper button{
+  width:36px;height:36px;border-radius:11px;border:1px solid rgba(255,255,255,.16);
+  background:transparent;color:var(--dough);font-size:20px;font-family:'Tajawal';
+  font-weight:700;cursor:pointer;line-height:1;
+}
+.stepper button:active{transform:scale(.92)}
+.stepper .plus{background:var(--ember);border-color:var(--ember);color:#2B2C2E}
+.qty{min-width:26px;text-align:center;font-weight:800;font-size:18px}
+
+/* الحقول */
+.field{margin-bottom:12px}
+.field label{display:block;font-size:13px;color:var(--muted);font-weight:700;margin:0 4px 7px}
+.field input,.field textarea{
+  width:100%;padding:14px;border-radius:14px;
+  background:var(--coal-2);border:1px solid rgba(255,255,255,.1);
+  color:var(--dough);font-family:'Tajawal';font-size:16px;font-weight:500;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--ember)}
+.field textarea{resize:none;height:74px}
+.row{display:flex;gap:10px}
+.row .field{flex:1}
+
+/* شريط الإرسال */
+.bar{
+  position:fixed;bottom:0;right:0;left:0;
+  background:rgba(58,59,61,.97);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:14px 16px calc(16px + env(safe-area-inset-bottom));
+}
+.bar-inner{max-width:620px;margin:0 auto}
+.totals{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px;font-size:14px}
+.totals .n{color:var(--muted)}
+.totals .v{font-weight:800;font-size:18px}
+.send{
+  display:block;width:100%;padding:17px;border:none;border-radius:15px;
+  background:var(--ember);color:#2B2C2E;font-family:'Tajawal';font-weight:800;font-size:17.5px;
+  cursor:pointer;text-align:center;text-decoration:none;
+}
+.send:active{background:var(--ember-dark)}
+.send[disabled]{background:#5A5B5D;color:#8E8F91;cursor:not-allowed}
+.hint{text-align:center;font-size:12px;color:var(--muted);margin-top:9px}
+footer{text-align:center;padding:20px;font-size:12px;color:#8E8F91}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">GRAND BAKERS</div>
+  <h1>بيتزا <em>طازة</em> لعنا المعرض</h1>
+  <p class="sub">أربع أنواع، كل قطعة بتكفي شخص.<br>اختار، اكتب اسمك ورقم الجناح، ومنوصلها لعندك.</p>
+</header>
+
+<main>
+  <div class="sec-label">الأنواع</div>
+  <div id="menu"></div>
+
+  <div class="sec-label" style="margin-top:26px">بياناتك</div>
+  <div class="row">
+    <div class="field">
+      <label for="nm">الاسم</label>
+      <input id="nm" type="text" placeholder="اسمك" autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="bt">رقم الجناح</label>
+      <input id="bt" type="text" placeholder="مثلاً B12" inputmode="text">
+    </div>
+  </div>
+  <div class="field">
+    <label for="ph">رقم موبايلك</label>
+    <input id="ph" type="tel" placeholder="لنتواصل معك عند التوصيل" inputmode="tel">
+  </div>
+  <div class="field">
+    <label for="nt">ملاحظات (اختياري)</label>
+    <textarea id="nt" placeholder="بدون فليفلة، وقت التوصيل المناسب…"></textarea>
+  </div>
+</main>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div class="totals">
+      <span class="n">المجموع</span>
+      <span class="v" id="tot">٠ قطعة</span>
+    </div>
+    <button class="send" id="send" disabled>ابعت الطلب عالواتساب</button>
+    <div class="hint" id="hint">بتنفتح الواتساب والرسالة جاهزة — بس اضغط إرسال</div>
+  </div>
+</div>
+
+<footer>جراند بيكرز · Happiness Makers</footer>
+
+<script>
+/* ============================================================
+   ١) رقم الواتساب يلي بتوصلك عليه الطلبات
+      اكتبه بصيغة دولية بدون + وبدون أصفار البداية
+   ============================================================ */
+const WHATSAPP = "963930378716";
+
+/* ============================================================
+   ١ب) رابط جوجل شيت لحفظ نسخة من كل طلب (الاحتياطي)
+        خذه من Apps Script بعد النشر. إذا تركته فاضي بتشتغل
+        الصفحة عادي بس بدون حفظ خارجي.
+   ============================================================ */
+const SHEET_URL = "";
+
+/* ============================================================
+   ٢) الأنواع الأربعة — بدّل الأسماء والوصف والسعر
+      حط price: 0 إذا الضيافة مجانية وما بدك تظهر أسعار
+   ============================================================ */
+const MENU = [
+  { icon:"🍕", name:"مارغريتا",       desc:"موتزاريلا وصوص بيتزا — الكلاسيك",  price:400 },
+  { icon:"🥩", name:"ميكس ميت",       desc:"براوني وتركي على موتزاريلا",       price:600 },
+  { icon:"🧀", name:"ميكس تشيز",      desc:"موتزاريلا، فيتا، وتشيدر",          price:600 },
+  { icon:"🫑", name:"فصول الأربعة",   desc:"فليفلة خضرا، زيتون، وفطر طازج",    price:500, tag:"نباتي" }
+];
+const CURRENCY = "ل.س";
+
+/* ====== ما في داعي تعدّل تحت ====== */
+const menuEl=document.getElementById("menu");
+const qty=MENU.map(()=>0);
+
+MENU.forEach((m,i)=>{
+  const el=document.createElement("div");
+  el.className="item"; el.id="it"+i;
+  el.innerHTML=`
+    <div class="thumb">${m.icon}</div>
+    <div class="info">
+      <div class="name">${m.name}${m.tag?`<span class="tag">${m.tag}</span>`:""}</div>
+      <div class="desc">${m.desc}</div>
+      ${m.price>0?`<div class="price">${m.price} ${CURRENCY}</div>`:""}
+    </div>
+    <div class="stepper">
+      <button aria-label="ناقص" data-i="${i}" data-d="-1">−</button>
+      <span class="qty" id="q${i}">0</span>
+      <button class="plus" aria-label="زائد" data-i="${i}" data-d="1">+</button>
+    </div>`;
+  menuEl.appendChild(el);
+});
+
+menuEl.addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  const i=+b.dataset.i, d=+b.dataset.d;
+  qty[i]=Math.max(0,Math.min(20,qty[i]+d));
+  document.getElementById("q"+i).textContent=qty[i];
+  document.getElementById("it"+i).classList.toggle("active",qty[i]>0);
+  refresh();
+});
+
+function count(){ return qty.reduce((a,b)=>a+b,0); }
+function money(){ return MENU.reduce((a,m,i)=>a+m.price*qty[i],0); }
+
+function refresh(){
+  const c=count(), m=money();
+  document.getElementById("tot").textContent =
+    c===0 ? "٠ قطعة" : c+" قطعة" + (m>0? " · "+m.toLocaleString("en")+" "+CURRENCY : "");
+  document.getElementById("send").disabled = c===0;
+}
+
+/* ---- الحفظ الاحتياطي على جوجل شيت ---- */
+function saveToSheet(order){
+  if(!SHEET_URL) return;
+  let ok=false;
+  try{
+    const body=new Blob([JSON.stringify(order)],{type:"text/plain;charset=UTF-8"});
+    ok=navigator.sendBeacon(SHEET_URL,body);
+  }catch(e){}
+  if(!ok){
+    try{ fetch(SHEET_URL,{method:"POST",mode:"no-cors",body:JSON.stringify(order)}); }
+    catch(e){ queue(order); }
+  }
+}
+/* إذا فشل الإرسال منخزنه بالجهاز ومنعيد المحاولة أول ما تنفتح الصفحة */
+function queue(o){
+  try{
+    const q=JSON.parse(localStorage.getItem("pz_queue")||"[]");
+    q.push(o); localStorage.setItem("pz_queue",JSON.stringify(q));
+  }catch(e){}
+}
+function flush(){
+  if(!SHEET_URL) return;
+  try{
+    const q=JSON.parse(localStorage.getItem("pz_queue")||"[]");
+    if(!q.length) return;
+    q.forEach(o=>{ try{ fetch(SHEET_URL,{method:"POST",mode:"no-cors",body:JSON.stringify(o)}); }catch(e){} });
+    localStorage.setItem("pz_queue","[]");
+  }catch(e){}
+}
+flush();
+
+document.getElementById("send").addEventListener("click",()=>{
+  const nm=document.getElementById("nm").value.trim();
+  const bt=document.getElementById("bt").value.trim();
+  const ph=document.getElementById("ph").value.trim();
+  const nt=document.getElementById("nt").value.trim();
+  const hint=document.getElementById("hint");
+
+  if(!nm || !bt){
+    hint.textContent="لازم تكتب الاسم ورقم الجناح";
+    hint.style.color="#FFCA02";
+    (!nm?document.getElementById("nm"):document.getElementById("bt")).focus();
+    return;
+  }
+  hint.style.color=""; hint.textContent="بتنفتح الواتساب والرسالة جاهزة — بس اضغط إرسال";
+
+  const ref = "#" + String(Date.now()).slice(-5);
+  const lines = MENU.map((m,i)=> qty[i]>0 ? m.name+" × "+qty[i] : null).filter(Boolean);
+
+  let t = "طلب بيتزا " + ref + "\n";
+  t += "الاسم: " + nm + "\n";
+  t += "الجناح: " + bt + "\n";
+  if(ph) t += "الموبايل: " + ph + "\n";
+  t += "————————\n";
+  lines.forEach(l=> t += "• " + l + "\n");
+  t += "————————\n";
+  t += "الإجمالي: " + count() + " قطعة";
+  if(money()>0) t += " — " + money().toLocaleString("en") + " " + CURRENCY;
+  t += "\n";
+  if(nt) t += "ملاحظات: " + nt + "\n";
+  t += "الوقت: " + new Date().toLocaleTimeString("ar-SY",{hour:"2-digit",minute:"2-digit"});
+
+  saveToSheet({
+    ref: ref, name: nm, booth: bt, phone: ph,
+    items: lines.join(" | "),
+    count: count(), total: money(), notes: nt
+  });
+
+  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t),"_blank");
+});
+
+refresh();
+</script>
+</body>
+</html>
