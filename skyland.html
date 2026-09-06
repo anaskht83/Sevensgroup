@@ -315,7 +315,7 @@
             <img class="vista-logo logo-top" src="vista-logo.png" alt="Ultra Vista" />
             <h1>سجل المبيعات اليومية</h1>
           </div>
-          <button id="openAdmin" class="admin-btn">إدخال المبيعات</button>
+          <button id="openAdmin" class="admin-btn hide">إدخال المبيعات</button>
         </div>
       </header>
       <div class="wrap">
@@ -360,8 +360,6 @@
         </div>
         <div class="grid">
           <label class="field"
-            >رمز الإدارة<input id="adminPin" type="password" required /></label
-          ><label class="field"
             >التاريخ<input id="saleDate" type="date" required /></label
           ><label class="field"
             >قيمة المبيعات<input
@@ -397,6 +395,7 @@
       const API = "https://vista-skyland-sales.anas-kht.chatgpt.site/api/sales";
       let sales = [],
         viewerPin = "";
+      let canEdit = false;
       const $ = (id) => document.getElementById(id),
         money = (n) => new Intl.NumberFormat("ar-SY").format(n),
         dateLabel = (s) =>
@@ -418,10 +417,12 @@
           data = await res.json();
         if (!res.ok) throw Error(data.error || "تعذر الدخول");
         viewerPin = pin;
+        canEdit = Boolean(data.canEdit);
         sales = data.sales || [];
         sessionStorage.setItem("vista-viewer-pin", pin);
         $("login").classList.add("hide");
         $("app").classList.remove("hide");
+        $("openAdmin").classList.toggle("hide", !canEdit);
         fillMonths();
       }
       function fillMonths() {
@@ -563,7 +564,7 @@
               method: "POST",
               headers: {
                 "content-type": "application/json",
-                "x-admin-pin": $("adminPin").value,
+                "x-admin-pin": viewerPin,
               },
               body: JSON.stringify(body),
             }),
