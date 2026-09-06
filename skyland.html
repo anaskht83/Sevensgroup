@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>مبيعات فيستا - سكاي لاند</title>
+    <style>
+      .vista-logo { display: block; object-fit: contain; }
+      .logo-login { width: 220px; max-width: 75%; height: 115px; margin: 0 auto 10px; }
+      .logo-top { width: 145px; height: 64px; }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Tahoma, Arial, sans-serif;
+        background: #f4f7f6;
+        color: #142b2a;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      .hide {
+        display: none !important;
+      }
+      .login {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #123a37;
+        padding: 16px;
+      }
+      .login-card {
+        background: #fff;
+        width: min(430px, 100%);
+        padding: 34px;
+        border-radius: 24px;
+        box-shadow: 0 22px 60px #05151366;
+      }
+      .brand {
+        color: #d39b35;
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
+      .login h1 {
+        font-size: 32px;
+        margin: 12px 0 5px;
+      }
+      .muted {
+        color: #667c79;
+      }
+      .field {
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 18px;
+      }
+      .field input,
+      .field textarea {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        border: 1px solid #cad9d5;
+        border-radius: 12px;
+        padding: 13px;
+        outline: none;
+      }
+      .field input:focus,
+      .field textarea:focus {
+        box-shadow: 0 0 0 2px #d39b35;
+      }
+      .pin {
+        text-align: center;
+        font-size: 22px;
+        letter-spacing: 8px;
+      }
+      .primary {
+        width: 100%;
+        border: 0;
+        border-radius: 12px;
+        background: #d39b35;
+        color: #142b2a;
+        font-weight: 900;
+        padding: 14px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .error {
+        background: #fff0f0;
+        color: #a21d27;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 12px;
+      }
+      .top {
+        background: #fff;
+        border-bottom: 1px solid #dce7e3;
+      }
+      .topin {
+        max-width: 1250px;
+        margin: auto;
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .top h1 {
+        margin: 5px 0 0;
+        font-size: 28px;
+      }
+      .admin-btn {
+        border: 0;
+        border-radius: 12px;
+        background: #163c3a;
+        color: #fff;
+        padding: 12px 16px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .wrap {
+        max-width: 1250px;
+        margin: auto;
+        padding: 28px 24px;
+      }
+      .tools {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+      }
+      .tools select {
+        border: 1px solid #cad9d5;
+        border-radius: 12px;
+        background: #fff;
+        padding: 11px 15px;
+        font-weight: 800;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        margin-bottom: 25px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #d8e4e0;
+        border-radius: 16px;
+        padding: 19px;
+      }
+      .card.main {
+        background: #163c3a;
+        color: #fff;
+        border-color: #163c3a;
+      }
+      .card small {
+        color: #667c79;
+      }
+      .card.main small {
+        color: #bcd0cc;
+      }
+      .card strong {
+        display: block;
+        font-size: 23px;
+        margin: 9px 0 4px;
+      }
+      .tablebox {
+        background: #fff;
+        border: 1px solid #d8e4e0;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px #153b380f;
+      }
+      .tabletitle {
+        padding: 17px 20px;
+        font-weight: 900;
+        border-bottom: 1px solid #e4ece9;
+      }
+      .scroll {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        min-width: 920px;
+        border-collapse: collapse;
+        text-align: right;
+      }
+      th,
+      td {
+        padding: 14px 18px;
+        white-space: nowrap;
+        border-top: 1px solid #edf2f0;
+        font-size: 14px;
+      }
+      th {
+        background: #f7faf9;
+        color: #526b68;
+        border-top: 0;
+      }
+      tfoot td {
+        background: #163c3a;
+        color: #fff;
+        font-weight: 900;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: #0b2422b3;
+        display: grid;
+        place-items: center;
+        padding: 16px;
+      }
+      .modal-card {
+        width: min(680px, 100%);
+        max-height: 94vh;
+        overflow: auto;
+        background: #fff;
+        border-radius: 24px;
+        padding: 28px;
+      }
+      .modal-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .modal-head h2 {
+        margin: 0;
+      }
+      .close {
+        border: 0;
+        background: #eef3f1;
+        border-radius: 9px;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .net {
+        background: #eef5f2;
+        padding: 15px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 18px;
+        font-weight: 900;
+      }
+      @media (max-width: 900px) {
+        .cards {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cards .main {
+          grid-column: 1/-1;
+        }
+      }
+      @media (max-width: 560px) {
+        .topin,
+        .wrap {
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+        .top h1 {
+          font-size: 21px;
+        }
+        .admin-btn {
+          padding: 11px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: 1fr 1fr;
+        }
+        .card {
+          padding: 15px;
+        }
+        .card strong {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="login" class="login">
+      <form id="loginForm" class="login-card">
+        <img class="vista-logo logo-login" src="vista-logo.png" alt="Ultra Vista" />
+        <h1>سجل المبيعات</h1>
+        <p class="muted">أدخل رمز المشاهدة لفتح التقرير اليومي.</p>
+        <label class="field"
+          >رمز المشاهدة<input
+            id="viewerPin"
+            class="pin"
+            type="password"
+            inputmode="numeric"
+            required
+            placeholder="••••••"
+        /></label>
+        <div id="loginError" class="error hide"></div>
+        <button class="primary">فتح التقرير</button>
+      </form>
+    </section>
+    <main id="app" class="hide">
+      <header class="top">
+        <div class="topin">
+          <div>
+            <img class="vista-logo logo-top" src="vista-logo.png" alt="Ultra Vista" />
+            <h1>سجل المبيعات اليومية</h1>
+          </div>
+          <button id="openAdmin" class="admin-btn">إدخال المبيعات</button>
+        </div>
+      </header>
+      <div class="wrap">
+        <section class="tools">
+          <div>
+            <small class="muted">آخر تحديث</small>
+            <div id="lastDate"><b>—</b></div>
+          </div>
+          <select id="month"></select>
+        </section>
+        <section id="cards" class="cards"></section>
+        <section class="tablebox">
+          <div class="tabletitle">تفاصيل الأيام</div>
+          <div class="scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>قيمة المبيعات</th>
+                  <th>المرتجعات</th>
+                  <th>الضيافات</th>
+                  <th>الحسومات</th>
+                  <th>صافي المبيعات</th>
+                  <th>الملاحظات</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+              <tfoot id="totals"></tfoot>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+    <section id="modal" class="modal hide">
+      <form id="salesForm" class="modal-card">
+        <div class="modal-head">
+          <div>
+            <h2>إدخال المبيعات اليومية</h2>
+            <p class="muted">إذا كان التاريخ موجوداً سيتم تحديثه.</p>
+          </div>
+          <button id="closeAdmin" type="button" class="close">✕</button>
+        </div>
+        <div class="grid">
+          <label class="field"
+            >رمز الإدارة<input id="adminPin" type="password" required /></label
+          ><label class="field"
+            >التاريخ<input id="saleDate" type="date" required /></label
+          ><label class="field"
+            >قيمة المبيعات<input
+              id="grossSales"
+              type="number"
+              min="1"
+              required /></label
+          ><label class="field"
+            >قيمة المرتجعات<input
+              id="returnsAmount"
+              type="number"
+              min="0" /></label
+          ><label class="field"
+            >قيمة الضيافات<input
+              id="hospitalityAmount"
+              type="number"
+              min="0" /></label
+          ><label class="field"
+            >قيمة الحسومات<input id="discountsAmount" type="number" min="0"
+          /></label>
+        </div>
+        <label class="field"
+          >الملاحظات<textarea id="notes" rows="3"></textarea>
+        </label>
+        <div class="net">
+          <span>صافي المبيعات</span><span id="netPreview">٠ ل.س</span>
+        </div>
+        <div id="saveError" class="error hide"></div>
+        <button class="primary">حفظ المبيعات</button>
+      </form>
+    </section>
+    <script>
+      const API = "https://vista-skyland-sales.anas-kht.chatgpt.site/api/sales";
+      let sales = [],
+        viewerPin = "";
+      const $ = (id) => document.getElementById(id),
+        money = (n) => new Intl.NumberFormat("ar-SY").format(n),
+        dateLabel = (s) =>
+          new Intl.DateTimeFormat("ar-SY", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }).format(new Date(s + "T12:00:00")),
+        net = (r) =>
+          r.grossSales -
+          r.returnsAmount -
+          r.hospitalityAmount -
+          r.discountsAmount;
+      async function load(pin) {
+        const res = await fetch(API, {
+            headers: { "x-viewer-pin": pin },
+            cache: "no-store",
+          }),
+          data = await res.json();
+        if (!res.ok) throw Error(data.error || "تعذر الدخول");
+        viewerPin = pin;
+        sales = data.sales || [];
+        sessionStorage.setItem("vista-viewer-pin", pin);
+        $("login").classList.add("hide");
+        $("app").classList.remove("hide");
+        fillMonths();
+      }
+      function fillMonths() {
+        const months = [...new Set(sales.map((r) => r.saleDate.slice(0, 7)))]
+          .sort()
+          .reverse();
+        $("month").innerHTML = months
+          .map(
+            (m) =>
+              '<option value="' +
+              m +
+              '">' +
+              new Intl.DateTimeFormat("ar-SY", {
+                month: "long",
+                year: "numeric",
+              }).format(new Date(m + "-01T12:00:00")) +
+              "</option>",
+          )
+          .join("");
+        render();
+      }
+      function render() {
+        const month = $("month").value,
+          rows = sales
+            .filter((r) => r.saleDate.startsWith(month))
+            .sort((a, b) => b.saleDate.localeCompare(a.saleDate)),
+          t = rows.reduce(
+            (a, r) => ({
+              g: a.g + r.grossSales,
+              r: a.r + r.returnsAmount,
+              h: a.h + r.hospitalityAmount,
+              d: a.d + r.discountsAmount,
+              n: a.n + net(r),
+            }),
+            { g: 0, r: 0, h: 0, d: 0, n: 0 },
+          );
+        $("lastDate").innerHTML = rows[0]
+          ? "<b>" + dateLabel(rows[0].saleDate) + "</b>"
+          : "—";
+        $("cards").innerHTML =
+          card("صافي المبيعات", t.n, true) +
+          card("قيمة المبيعات", t.g) +
+          card("المرتجعات", t.r) +
+          card("الضيافات", t.h) +
+          card("الحسومات", t.d);
+        $("rows").innerHTML = rows
+          .map(
+            (r) =>
+              "<tr><td>" +
+              dateLabel(r.saleDate) +
+              "</td><td>" +
+              money(r.grossSales) +
+              "</td><td>" +
+              money(r.returnsAmount) +
+              "</td><td>" +
+              money(r.hospitalityAmount) +
+              "</td><td>" +
+              money(r.discountsAmount) +
+              "</td><td><b>" +
+              money(net(r)) +
+              "</b></td><td>" +
+              (r.notes || "—") +
+              "</td></tr>",
+          )
+          .join("");
+        $("totals").innerHTML =
+          "<tr><td>الإجمالي</td><td>" +
+          money(t.g) +
+          "</td><td>" +
+          money(t.r) +
+          "</td><td>" +
+          money(t.h) +
+          "</td><td>" +
+          money(t.d) +
+          "</td><td>" +
+          money(t.n) +
+          "</td><td>—</td></tr>";
+      }
+      function card(title, value, main = false) {
+        return (
+          '<div class="card ' +
+          (main ? "main" : "") +
+          '"><small>' +
+          title +
+          "</small><strong>" +
+          money(value) +
+          "</strong><small>ليرة سورية</small></div>"
+        );
+      }
+      $("loginForm").onsubmit = async (e) => {
+        e.preventDefault();
+        $("loginError").classList.add("hide");
+        try {
+          await load($("viewerPin").value);
+        } catch (x) {
+          $("loginError").textContent = x.message;
+          $("loginError").classList.remove("hide");
+        }
+      };
+      $("month").onchange = render;
+      $("openAdmin").onclick = () => {
+        $("modal").classList.remove("hide");
+        $("saleDate").value = new Date().toISOString().slice(0, 10);
+      };
+      $("closeAdmin").onclick = () => $("modal").classList.add("hide");
+      [
+        "grossSales",
+        "returnsAmount",
+        "hospitalityAmount",
+        "discountsAmount",
+      ].forEach(
+        (id) =>
+          ($(id).oninput = () => {
+            $("netPreview").textContent =
+              money(
+                Math.max(
+                  0,
+                  Number($("grossSales").value || 0) -
+                    Number($("returnsAmount").value || 0) -
+                    Number($("hospitalityAmount").value || 0) -
+                    Number($("discountsAmount").value || 0),
+                ),
+              ) + " ل.س";
+          }),
+      );
+      $("salesForm").onsubmit = async (e) => {
+        e.preventDefault();
+        $("saveError").classList.add("hide");
+        const body = {
+          saleDate: $("saleDate").value,
+          grossSales: $("grossSales").value,
+          returnsAmount: $("returnsAmount").value,
+          hospitalityAmount: $("hospitalityAmount").value,
+          discountsAmount: $("discountsAmount").value,
+          notes: $("notes").value,
+        };
+        try {
+          const res = await fetch(API, {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                "x-admin-pin": $("adminPin").value,
+              },
+              body: JSON.stringify(body),
+            }),
+            data = await res.json();
+          if (!res.ok) throw Error(data.error || "تعذر الحفظ");
+          $("modal").classList.add("hide");
+          $("salesForm").reset();
+          await load(viewerPin);
+        } catch (x) {
+          $("saveError").textContent = x.message;
+          $("saveError").classList.remove("hide");
+        }
+      };
+      const saved = sessionStorage.getItem("vista-viewer-pin");
+      if (saved) {
+        $("viewerPin").value = saved;
+        load(saved).catch(() => sessionStorage.removeItem("vista-viewer-pin"));
+      }
+    </script>
+  </body>
+</html>
