@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/dailyreport", "destination": "https://dailyreport-rosy-two.vercel.app/dailyreport" },
+    { "source": "/dailyreport/:path*", "destination": "https://dailyreport-rosy-two.vercel.app/dailyreport/:path*" }
+  ]
+}
