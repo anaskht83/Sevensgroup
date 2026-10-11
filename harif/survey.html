@@ -382,7 +382,8 @@ async function send(){
   body.append('items',items.join('، '));
   body.append('item_ratings',items.map((it,j)=>it+': '+(a['item__'+j]||'')).join(' | '));
   if(a.website) body.append('website',a.website);
-  body.append('src',params.get('src')||'مباشر');
+  const SRC={t:'طاولة',b:'فاتورة',d:'كيس التوصيل',w:'واتساب',fb:'فيسبوك',ig:'إنستغرام'};
+  const sp=params.get('s')||params.get('src')||''; body.append('src',SRC[sp]||sp||'رابط مباشر');
   body.append('table',params.get('t')||'');
   try{
     await fetch(ENDPOINT,{method:'POST',mode:'no-cors',body});
