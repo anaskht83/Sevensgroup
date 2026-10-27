@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>مبيعات الحريف - سكاي لاند</title>
     <style>
-      .vista-logo { display: block; object-fit: contain; }
-      .logo-login { width: 220px; max-width: 75%; height: 115px; margin: 0 auto 10px; }
-      .logo-top { width: 145px; height: 64px; }
+      .hareef-logo {
+        display: block;
+        width: 190px;
+        max-width: 65%;
+        height: auto;
+        margin: 0 auto 12px;
+        object-fit: contain;
+      }
+      .hareef-logo.compact {
+        width: 82px;
+        max-width: none;
+        margin: 0;
+      }
       * {
         box-sizing: border-box;
       }
@@ -287,13 +297,13 @@
           font-size: 19px;
         }
       }
-      .hareef-logo{font-size:54px;font-weight:950;color:#8e2e16;line-height:.9;text-align:center}.hareef-logo small{display:block;font-size:12px;letter-spacing:4px;color:#c98729;margin-top:10px}.hareef-logo.compact{font-size:34px;text-align:right}.hareef-logo.compact small{font-size:9px;margin-top:6px}.edit-btn{border:1px solid #d39b35;background:#fff8e8;border-radius:8px;padding:6px 12px;font-weight:800;cursor:pointer}.net{gap:18px;flex-wrap:wrap}
+      .edit-btn{border:1px solid #d39b35;background:#fff8e8;border-radius:8px;padding:6px 12px;font-weight:800;cursor:pointer}.net{gap:18px;flex-wrap:wrap}
     </style>
   </head>
   <body>
     <section id="login" class="login">
       <form id="loginForm" class="login-card">
-        <div class="hareef-logo">الحريف<small>GRILL HOUSE</small></div>
+        <img class="hareef-logo" src="/alhareef-logo.png" alt="شعار الحريف Grill House" />
         <h1>سجل المبيعات</h1>
         <p class="muted">أدخل رمز المشاهدة لفتح التقرير اليومي.</p>
         <label class="field"
@@ -313,7 +323,7 @@
       <header class="top">
         <div class="topin">
           <div>
-            <div class="hareef-logo compact">الحريف<small>GRILL HOUSE</small></div>
+            <img class="hareef-logo compact" src="/alhareef-logo.png" alt="شعار الحريف Grill House" />
             <h1>سجل المبيعات اليومية</h1>
           </div>
           <button id="openAdmin" class="admin-btn hide">إدخال المبيعات</button>
