@@ -11,6 +11,10 @@
     {
       "source": "/alhareef",
       "destination": "/alhareef.html"
+    },
+    {
+      "source": "/vistamidan",
+      "destination": "/vistamidan.html"
     }
   ]
 }
